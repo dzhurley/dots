@@ -3,7 +3,7 @@
     name = Derek Hurley
 [core]
     editor = vim
-    excludesfile = /Users/derekhurley/.gitignore_global
+    excludesfile = ~/.gitignore_global
 [merge]
     tool = vimdiff
 [github]

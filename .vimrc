@@ -1,3 +1,5 @@
+set nocompatible
+
 "" vundle stuffs
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -110,7 +112,6 @@ set ruler
 set laststatus=2
 
 "" misc
-set nocompatible
 set history=1000
 set modelines=0
 set encoding=utf-8
