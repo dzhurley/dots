@@ -1,0 +1,14 @@
+[user]
+    email = dzhurley@gmail.com
+    name = Derek Hurley
+[core]
+    editor = vim
+    excludesfile = /Users/derekhurley/.gitignore_global
+[merge]
+    tool = vimdiff
+[github]
+    user = dzhurley
+[color]
+    ui = true
+[alias]
+    lg = log --pretty=oneline --graph --all --decorate --abbrev-commit
