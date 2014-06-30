@@ -14,8 +14,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'nono/vim-handlebars'
 Plugin 'pangloss/vim-javascript'
-Plugin 'rizzatti/dash.vim'
-Plugin 'rizzatti/funcoo.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rsi'
@@ -48,8 +46,8 @@ let g:ctrlp_custom_ignore = {
 autocmd FileType handlebars set commentstring={{!\ %s\ }}
 
 "" zencoding
-let g:user_zen_leader_key = '<c-e>'
-let g:user_zen_settings = {
+let g:user_emmet_leader_key = '<c-e>'
+let g:user_emmet_settings = {
 \  'handlebars' : {
 \    'filters' : 'html',
 \    'indentation' : '  '
@@ -74,8 +72,6 @@ nmap <leader>n Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
 nmap <leader>d Odebugger;<Esc>:w<CR>
 " better saving
 nmap <leader>w :update<CR>
-" dash current word
-nmap <silent> <leader>h <Plug>DashSearch
 
 "" whitespace
 " defaults
