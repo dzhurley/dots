@@ -9,7 +9,6 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'kien/ctrlp.vim'
@@ -109,6 +108,20 @@ set noswapfile
 set ruler
 set laststatus=2
 
+"" colors
+syntax on
+set background=dark
+colorscheme solarized
+
+"" leave only one cursorline, on the active window
+set cursorline
+hi! link SignColumn Normal
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
 "" misc
 set history=1000
 set modelines=0
@@ -116,17 +129,3 @@ set encoding=utf-8
 set matchpairs+=<:>
 set complete=.,w,b,u,t
 set lazyredraw
-
-"" colors
-syntax on
-set background=dark
-colorscheme solarized
-
-" cursor highlighting
-set cursorline
-hi cursorline cterm=bold ctermbg=4
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
