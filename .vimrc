@@ -8,6 +8,8 @@ call vundle#begin()
 "" bundles
 Plugin 'gmarik/vundle'
 
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'kien/ctrlp.vim'
@@ -117,7 +119,8 @@ set lazyredraw
 
 "" colors
 syntax on
-colorscheme slate
+set background=dark
+colorscheme solarized
 
 " cursor highlighting
 set cursorline
