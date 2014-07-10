@@ -31,6 +31,7 @@ filetype plugin indent on
 
 "" syntastic
 let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
 
 "" ctrlp
