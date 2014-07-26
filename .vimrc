@@ -15,6 +15,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'nono/vim-handlebars'
 Plugin 'pangloss/vim-javascript'
+Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-rsi'
@@ -29,26 +30,32 @@ call vundle#end()
 " required after bundles
 filetype plugin indent on
 
-"" syntastic
-let g:syntastic_check_on_open=1
-let g:syntastic_javascript_checkers = ['jshint']
-let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
+"" ag.vim
+nnoremap <leader>r :Ag! 
+let g:agprg="ag --smart-case"
+let g:agformat="%f:%l:%m"
+
+"" bufkill.vim
+cnoremap bw BW
+cnoremap bd BD
+
+"" commentary
+autocmd FileType handlebars set commentstring={{!\ %s\ }}
+autocmd FileType python set commentstring=#\ %s
 
 "" ctrlp
 let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_open_multiple_files = '1v'
-let g:ctrlp_extensions = ['mixed']
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|sass-cache)|(built-js|out)$',
   \ 'file': '\v\.(pyc|orig|rej)$',
   \ }
+let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_open_multiple_files = '1v'
+let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 
-"" commentary
-autocmd FileType handlebars set commentstring={{!\ %s\ }}
-
-"" zencoding
-let g:user_emmet_leader_key = '<c-e>'
+"" emmet
+let g:user_emmet_leader_key = '<c-t>'
 let g:user_emmet_settings = {
 \  'handlebars' : {
 \    'filters' : 'html',
@@ -60,9 +67,10 @@ let g:user_emmet_settings = {
 \  }
 \}
 
-"" bufkill.vim
-cnoremap bw BW
-cnoremap bd BD
+"" syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
 
 "" mappings
 " leader shorthand
