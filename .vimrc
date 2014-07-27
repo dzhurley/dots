@@ -69,6 +69,7 @@ let g:user_emmet_settings = {
 
 "" syntastic
 let g:syntastic_check_on_open=1
+let g:syntastic_enable_highlighting = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
 
@@ -123,6 +124,7 @@ set background=dark
 colorscheme solarized
 
 "" leave only one cursorline, on the active window
+let &showbreak='↪ '
 set cursorline
 hi! link SignColumn Normal
 augroup CursorLine
@@ -132,6 +134,7 @@ augroup CursorLine
 augroup END
 
 "" misc
+set number
 set history=1000
 set modelines=0
 set encoding=utf-8
