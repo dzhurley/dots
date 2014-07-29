@@ -11,6 +11,8 @@ Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'junegunn/vim-pseudocl'
+Plugin 'junegunn/vim-oblique'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'nono/vim-handlebars'
@@ -32,7 +34,7 @@ call vundle#end()
 filetype plugin indent on
 
 "" ag.vim
-nnoremap <leader>r :Ag!
+nmap <leader>r :Ag!
 let g:agprg="ag --smart-case"
 let g:agformat="%f:%l:%m"
 
