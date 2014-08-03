@@ -1,76 +1,5 @@
 set nocompatible
 
-"" cursorline
-set cursorline
-hi! link SignColumn Normal
-augroup CursorLine
-    au!
-    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
-augroup END
-
-"" completion
-set complete=.,w,b,u
-set completeopt=longest,menu
-
-"" file/buffer
-set hidden
-set wildmenu
-set wildmode=longest:full,full
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-" Resize splits when the window is resized
-au VimResized * :wincmd =
-
-"" mappings
-let mapleader=" "
-" debug all the things
-nmap <leader>p Oimport pdb; pdb.set_trace()<Esc>:w<CR>
-nmap <leader>g O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
-nmap <leader>n Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
-nmap <leader>d Odebugger;<Esc>:w<CR>
-" better saving
-nmap <leader>w :update<CR>
-" navigate through visually wrapped lines
-noremap j gj
-noremap k gk
-noremap gj j
-noremap gk k
-
-"" status line
-set ruler
-set laststatus=2
-
-"" vim management
-set nobackup
-set noswapfile
-
-"" whitespace
-set cindent
-set ts=4 sts=4 sw=4 et
-set backspace=indent,eol,start
-" file specific
-autocmd FileType html setlocal ts=2 sts=2 sw=2 et
-autocmd FileType handlebars setlocal ts=2 sts=2 sw=2 et
-let g:pymode_indent = 0
-
-"" misc
-set background=dark
-set encoding=utf-8
-set history=1000
-" make `foo-bar` work with w, *, etc
-set iskeyword+=-
-set lazyredraw
-set matchpairs+=<:>
-set modelines=0
-" scroll with trackpad
-set mouse=a
-set number
-set showbreak=↪
-syntax on
-
 "" bundles
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -134,12 +63,83 @@ let g:user_emmet_settings = {
 \  'html' : { 'filters': 'html', 'indentation': '  ' }
 \}
 
-"" solarized
-colorscheme solarized
-
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
+
+"" colors
+syntax on
+set background=dark
+colorscheme solarized
+
+"" completion
+set complete=.,w,b,u
+set completeopt=longest,menu
+
+"" cursorline
+set cursorline
+hi! link SignColumn Normal
+augroup CursorLine
+    au!
+    au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup END
+
+"" file/buffer
+set hidden
+set wildmenu
+set wildmode=longest:full,full
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+" Resize splits when the window is resized
+au VimResized * :wincmd =
+
+"" mappings
+let mapleader=" "
+" debug all the things
+nmap <leader>p Oimport pdb; pdb.set_trace()<Esc>:w<CR>
+nmap <leader>g O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
+nmap <leader>n Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
+nmap <leader>d Odebugger;<Esc>:w<CR>
+" better saving
+nmap <leader>w :update<CR>
+" navigate through visually wrapped lines
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
+
+"" status line
+set ruler
+set laststatus=2
+
+"" vim management
+set nobackup
+set noswapfile
+
+"" whitespace
+set cindent
+set ts=4 sts=4 sw=4 et
+set backspace=indent,eol,start
+" file specific
+autocmd FileType html setlocal ts=2 sts=2 sw=2 et
+autocmd FileType handlebars setlocal ts=2 sts=2 sw=2 et
+let g:pymode_indent = 0
+
+"" misc
+set encoding=utf-8
+set history=1000
+" make `foo-bar` work with w, *, etc
+set iskeyword+=-
+set lazyredraw
+set matchpairs+=<:>
+set modelines=0
+" scroll with trackpad
+set mouse=a
+set number
+set showbreak=↪
