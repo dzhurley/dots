@@ -38,8 +38,8 @@ let g:agprg="ag --smart-case"
 let g:agformat="%f:%l:%m"
 
 "" bufkill.vim
-cnoremap bw BW
-cnoremap bd BD
+cab bw BW
+cab bd BD
 
 "" commentary
 autocmd FileType handlebars set commentstring={{!\ %s\ }}
@@ -69,6 +69,16 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
+
+"" abbreviations
+cab W! w!
+cab Q! q!
+cab Wq wq
+cab Wa wa
+cab wQ wq
+cab WQ wq
+cab W w
+cab Q q
 
 "" colors
 syntax on
@@ -139,7 +149,5 @@ set iskeyword+=-
 set lazyredraw
 set matchpairs+=<:>
 set modelines=0
-" scroll with trackpad
-set mouse=a
 set number
 set showbreak=↪
