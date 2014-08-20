@@ -124,11 +124,19 @@ noremap k gk
 noremap gj j
 noremap gk k
 
+"" searching
+set gdefault
+set ignorecase
+set smartcase
+set infercase
+set incsearch
+
 "" status line
 set ruler
 set laststatus=2
 
 "" vim management
+set autoread
 set nobackup
 set noswapfile
 
@@ -136,12 +144,15 @@ set noswapfile
 set cindent
 set ts=4 sts=4 sw=4 et
 set backspace=indent,eol,start
+set smarttab
 " file specific
 autocmd FileType html setlocal ts=2 sts=2 sw=2 et
 autocmd FileType handlebars setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
+" show line contents instead of '@@@..' if too long
+set display+=lastline
 set encoding=utf-8
 set history=1000
 " make `foo-bar` work with w, *, etc
@@ -150,4 +161,7 @@ set lazyredraw
 set matchpairs+=<:>
 set modelines=0
 set number
+" C-a/C-x shouldn't do octal
+set nrformats-=octal
+set paste
 set showbreak=↪
