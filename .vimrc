@@ -163,5 +163,4 @@ set modelines=0
 set number
 " C-a/C-x shouldn't do octal
 set nrformats-=octal
-set paste
 set showbreak=↪
