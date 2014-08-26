@@ -10,6 +10,7 @@ Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/vim-pseudocl'
 Plugin 'junegunn/vim-oblique'
 Plugin 'kien/ctrlp.vim'
@@ -62,6 +63,17 @@ let g:user_emmet_settings = {
 \  'handlebars' : { 'filters': 'html', 'indentation': '  ' },
 \  'html' : { 'filters': 'html', 'indentation': '  ' }
 \}
+
+"" lightline
+let g:lightline = {
+            \ 'colorscheme': 'solarized_dark',
+            \ }
+let g:lightline.active = {
+            \ 'left': [ [ 'mode', 'paste' ],
+            \           [ 'readonly', 'filename', 'modified' ] ],
+            \ 'right': [ [ 'lineinfo' ],
+            \            [ 'percent' ],
+            \            [ 'filetype' ] ] }
 
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -160,6 +172,7 @@ set iskeyword+=-
 set lazyredraw
 set matchpairs+=<:>
 set modelines=0
+set noshowmode
 set number
 " C-a/C-x shouldn't do octal
 set nrformats-=octal
