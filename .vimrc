@@ -20,6 +20,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-commentary'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
@@ -67,13 +68,20 @@ let g:user_emmet_settings = {
 "" lightline
 let g:lightline = {
             \ 'colorscheme': 'solarized_dark',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \           [ 'fugitive', 'filename', 'modified' ] ],
+            \   'right': [ [ 'lineinfo' ], [ 'percent' ] ]
+            \ },
+            \ 'component_function': { 'fugitive': 'MyFugitive' }
             \ }
-let g:lightline.active = {
-            \ 'left': [ [ 'mode', 'paste' ],
-            \           [ 'readonly', 'filename', 'modified' ] ],
-            \ 'right': [ [ 'lineinfo' ],
-            \            [ 'percent' ],
-            \            [ 'filetype' ] ] }
+function! MyFugitive()
+    if exists("*fugitive#head")
+        let _ = fugitive#head()
+        return strlen(_) ? ' '._ : ''
+    endif
+    return ''
+endfunction
 
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
