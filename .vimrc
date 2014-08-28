@@ -95,6 +95,9 @@ cab W! w!
 cab Q! q!
 cab Wq wq
 cab Wa wa
+cab wA wa
+cab Qa qa
+cab qA qa
 cab wQ wq
 cab WQ wq
 cab W w
