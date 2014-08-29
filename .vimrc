@@ -15,7 +15,6 @@ Plugin 'junegunn/vim-pseudocl'
 Plugin 'junegunn/vim-oblique'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'nono/vim-handlebars'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
@@ -44,7 +43,6 @@ cab bw BW
 cab bd BD
 
 "" commentary
-autocmd FileType handlebars set commentstring={{!\ %s\ }}
 autocmd FileType python set commentstring=#\ %s
 
 "" ctrlp
@@ -61,7 +59,6 @@ let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 "" emmet
 let g:user_emmet_leader_key = '<c-t>'
 let g:user_emmet_settings = {
-\  'handlebars' : { 'filters': 'html', 'indentation': '  ' },
 \  'html' : { 'filters': 'html', 'indentation': '  ' }
 \}
 
@@ -90,7 +87,7 @@ let g:syntastic_enable_highlighting = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
 
-"" abbreviations
+"" abbreviations for tyops
 cab W! w!
 cab Q! q!
 cab Wq wq
@@ -136,7 +133,6 @@ au VimResized * :wincmd =
 let mapleader=" "
 " debug all the things
 nmap <leader>p Oimport pdb; pdb.set_trace()<Esc>:w<CR>
-nmap <leader>g O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
 nmap <leader>n Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
 nmap <leader>d Odebugger;<Esc>:w<CR>
 " better saving
@@ -170,14 +166,12 @@ set backspace=indent,eol,start
 set smarttab
 " file specific
 autocmd FileType html setlocal ts=2 sts=2 sw=2 et
-autocmd FileType handlebars setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
 " show line contents instead of '@@@..' if too long
 set display+=lastline
 set encoding=utf-8
-set history=1000
 " make `foo-bar` work with w, *, etc
 set iskeyword+=-
 set lazyredraw
@@ -185,6 +179,4 @@ set matchpairs+=<:>
 set modelines=0
 set noshowmode
 set number
-" C-a/C-x shouldn't do octal
-set nrformats-=octal
 set showbreak=↪
