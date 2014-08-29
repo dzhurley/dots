@@ -1,4 +1,5 @@
 set nocompatible
+let mapleader=" "
 
 "" bundles
 filetype off
@@ -34,7 +35,7 @@ call vundle#end()
 filetype plugin indent on
 
 "" ag.vim
-nmap <leader>r :Ag!
+nmap <leader>r :Ag! 
 let g:agprg="ag --smart-case"
 let g:agformat="%f:%l:%m"
 
@@ -67,18 +68,15 @@ let g:lightline = {
             \ 'colorscheme': 'solarized_dark',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
-            \           [ 'fugitive', 'filename', 'modified' ] ],
+            \             [ 'fugitive', 'readonly' ],
+            \             [ 'filename', 'modified' ] ],
             \   'right': [ [ 'lineinfo' ], [ 'percent' ] ]
             \ },
-            \ 'component_function': { 'fugitive': 'MyFugitive' }
+            \ 'component': {
+            \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
+            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+            \ },
             \ }
-function! MyFugitive()
-    if exists("*fugitive#head")
-        let _ = fugitive#head()
-        return strlen(_) ? ' '._ : ''
-    endif
-    return ''
-endfunction
 
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
@@ -130,7 +128,6 @@ map <C-l> <C-w>l
 au VimResized * :wincmd =
 
 "" mappings
-let mapleader=" "
 " debug all the things
 nmap <leader>p Oimport pdb; pdb.set_trace()<Esc>:w<CR>
 nmap <leader>n Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
@@ -174,7 +171,6 @@ set display+=lastline
 set encoding=utf-8
 " make `foo-bar` work with w, *, etc
 set iskeyword+=-
-set lazyredraw
 set matchpairs+=<:>
 set modelines=0
 set noshowmode
