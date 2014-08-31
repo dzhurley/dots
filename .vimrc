@@ -135,6 +135,8 @@ set incsearch
 "" status line
 set ruler
 set laststatus=2
+set statusline=\ %<%{pathshorten(expand('%'))}\ %h%m%r
+set statusline+=%=%{SyntasticStatuslineFlag()}\ %{fugitive#head()}\ 
 
 "" vim management
 set autoread
@@ -158,6 +160,5 @@ set encoding=utf-8
 set iskeyword+=-
 set matchpairs+=<:>
 set modelines=0
-set noshowmode
 set number
 set showbreak=↪
