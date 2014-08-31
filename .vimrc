@@ -11,7 +11,6 @@ Plugin 'gmarik/vundle'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'itchyny/lightline.vim'
 Plugin 'junegunn/vim-pseudocl'
 Plugin 'junegunn/vim-oblique'
 Plugin 'kien/ctrlp.vim'
@@ -35,7 +34,7 @@ call vundle#end()
 filetype plugin indent on
 
 "" ag.vim
-nmap <leader>r :Ag! 
+nmap <leader>r :Ag!<Space>
 let g:agprg="ag --smart-case"
 let g:agformat="%f:%l:%m"
 
@@ -63,27 +62,13 @@ let g:user_emmet_settings = {
 \  'html' : { 'filters': 'html', 'indentation': '  ' }
 \}
 
-"" lightline
-let g:lightline = {
-            \ 'colorscheme': 'solarized_dark',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'fugitive', 'readonly' ],
-            \             [ 'filename', 'modified' ] ],
-            \   'right': [ [ 'lineinfo' ], [ 'percent' ] ]
-            \ },
-            \ 'component': {
-            \   'readonly': '%{&filetype=="help"?"":&readonly?"":""}',
-            \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
-            \ },
-            \ }
-
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
+let g:syntastic_stl_format = '[%E{E: line %fe, (%e)}%B{, }%W{W: line %fw (%w)}]'
 
 "" abbreviations for tyops
 cab W! w!
