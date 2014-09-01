@@ -55,6 +55,16 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_extensions = ['mixed']
 let g:ctrlp_open_multiple_files = '1v'
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
+let g:ctrlp_status_func = {
+            \ 'main': 'CtrlPMain',
+            \ 'prog': 'CtrlPProg'
+            \ }
+function! CtrlPMain(...)
+    return '%1* ' . a:5 . '%=' . fnamemodify(getcwd(), ':~') . ' '
+endfunction
+function! CtrlPProg(...)
+    return '%1* ' . fnamemodify(getcwd(), ':~') . ' (' . a:1 . ')'
+endfunction
 
 "" emmet
 let g:user_emmet_leader_key = '<c-t>'
@@ -68,7 +78,7 @@ let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
-let g:syntastic_stl_format = '[%E{E: line %fe, (%e)}%B{, }%W{W: line %fw (%w)}]'
+let g:syntastic_stl_format = '%E{E:%fe}%B{, }%W{W:%fw}'
 
 "" abbreviations for tyops
 cab W! w!
@@ -87,6 +97,13 @@ cab Q q
 syntax on
 set background=dark
 colorscheme solarized
+" statusline and associated
+hi User1 ctermfg=4 ctermbg=0
+hi User2 ctermfg=1 ctermbg=0
+hi User3 ctermfg=2 ctermbg=0
+hi! link VertSplit LineNr
+hi! link StatusLine LineNr
+hi! link StatusLineNC SpecialKey
 
 "" completion
 set complete=.,w,b,u
@@ -133,13 +150,6 @@ set infercase
 set incsearch
 
 "" status line
-" colors
-hi User1 ctermfg=4 ctermbg=0
-hi User2 ctermfg=1 ctermbg=0
-hi User3 ctermfg=2 ctermbg=0
-hi! link VertSplit LineNr
-hi! link StatusLine LineNr
-hi! link StatusLineNC SpecialKey
 " toggle active/inactive
 augroup Statusline
     au! Statusline
