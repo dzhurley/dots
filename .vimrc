@@ -133,10 +133,35 @@ set infercase
 set incsearch
 
 "" status line
-set ruler
+" colors
+hi User1 ctermfg=4 ctermbg=0
+hi User2 ctermfg=1 ctermbg=0
+hi User3 ctermfg=2 ctermbg=0
+hi! link VertSplit LineNr
+hi! link StatusLine LineNr
+hi! link StatusLineNC SpecialKey
+" toggle active/inactive
+augroup Statusline
+    au! Statusline
+    au VimEnter,WinEnter,BufWinEnter * call <SID>SetFullStatusline()
+    au WinLeave * call <SID>SetSimpleStatusline()
+augroup END
+" active line
+function! s:SetFullStatusline()
+    setlocal statusline=
+    setlocal statusline+=%1*\ %<%{pathshorten(expand('%'))}\ 
+    setlocal statusline+=%2*%m\ %r%*%=
+    setlocal statusline+=%2*%{SyntasticStatuslineFlag()}
+    setlocal statusline+=%3*\ %{fugitive#head()}\ 
+endfunction
+" inactive line
+function! s:SetSimpleStatusline()
+    setlocal statusline=
+    setlocal statusline+=\ %<%{pathshorten(expand('%'))}\ 
+    setlocal statusline+=%m\ %r%=
+    setlocal statusline+=%{fugitive#head()}\ 
+endfunction
 set laststatus=2
-set statusline=\ %<%{pathshorten(expand('%'))}\ %h%m%r
-set statusline+=%=%{SyntasticStatuslineFlag()}\ %{fugitive#head()}\ 
 
 "" vim management
 set autoread
@@ -160,5 +185,4 @@ set encoding=utf-8
 set iskeyword+=-
 set matchpairs+=<:>
 set modelines=0
-set number
 set showbreak=↪
