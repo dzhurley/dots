@@ -72,6 +72,16 @@ let g:user_emmet_settings = {
 \  'html' : { 'filters': 'html', 'indentation': '  ' }
 \}
 
+"" fugitive
+nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>gm :Gmove<Space>
+nnoremap <leader>gr :Gremove<CR>
+nnoremap <leader>gb :Gblame<Space>
+nnoremap <leader>gco :Git checkout<Space>
+nnoremap <leader>gp :Gpush<CR>
+nnoremap <leader>gl :Gpull<CR>
+
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open=1
