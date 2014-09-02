@@ -12,5 +12,3 @@
     ui = true
 [alias]
     lg = log --pretty=oneline --graph --all --decorate --abbrev-commit
-[push]
-	default = simple

@@ -79,8 +79,9 @@ nnoremap <leader>gm :Gmove<Space>
 nnoremap <leader>gr :Gremove<CR>
 nnoremap <leader>gb :Gblame<Space>
 nnoremap <leader>gco :Git checkout<Space>
-nnoremap <leader>gp :Gpush<CR>
-nnoremap <leader>gl :Gpull<CR>
+" only push/pull current branch
+nnoremap <leader>gp :execute ':Git push origin ' . fugitive#head()<CR>
+nnoremap <leader>gl :execute ':Git pull origin ' . fugitive#head()<CR>
 
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
