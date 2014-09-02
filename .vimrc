@@ -202,8 +202,10 @@ let g:pymode_indent = 0
 " show line contents instead of '@@@..' if too long
 set display+=lastline
 set encoding=utf-8
+set nofoldenable
 " make `foo-bar` work with w, *, etc
 set iskeyword+=-
 set matchpairs+=<:>
 set modelines=0
+set shortmess+=I
 set showbreak=↪
