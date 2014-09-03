@@ -75,10 +75,10 @@ let g:user_emmet_settings = {
 "" fugitive
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gvdiff<CR>
-nnoremap <leader>gm :Gmove<Space>
-nnoremap <leader>gr :Gremove<CR>
-nnoremap <leader>gb :Gblame<Space>
-nnoremap <leader>gco :Git checkout<Space>
+nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gc :Git checkout<Space>
+nnoremap <leader>gst :Git stash<CR>
+nnoremap <leader>gstp :Git stash pop<CR>
 " only push/pull current branch
 nnoremap <leader>gp :execute ':Git push origin ' . fugitive#head()<CR>
 nnoremap <leader>gl :execute ':Git pull origin ' . fugitive#head()<CR>
