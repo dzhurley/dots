@@ -143,6 +143,7 @@ au VimResized * :wincmd =
 "" mappings
 " debug all the things
 nmap <leader>p Oimport pdb; pdb.set_trace()<Esc>:w<CR>
+nmap <leader>t O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
 nmap <leader>n Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
 nmap <leader>d Odebugger;<Esc>:w<CR>
 " better saving
@@ -152,6 +153,8 @@ noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
+" make Y consistent with D and C
+nnoremap Y y$
 
 "" searching
 set gdefault
