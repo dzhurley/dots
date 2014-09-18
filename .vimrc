@@ -18,6 +18,7 @@ Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rsi'
@@ -82,6 +83,10 @@ nnoremap <leader>gstp :Git stash pop<CR>
 " only push/pull current branch
 nnoremap <leader>gp :execute ':Git push origin ' . fugitive#head()<CR>
 nnoremap <leader>gl :execute ':Git pull origin ' . fugitive#head()<CR>
+
+"" gundo
+nnoremap <leader>u :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
 
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
