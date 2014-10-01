@@ -92,7 +92,7 @@ let g:gundo_preview_bottom = 1
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 1
-let g:syntastic_javascript_checkers = ['jshint']
+let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
 let g:syntastic_stl_format = '%E{E:%fe}%B{, }%W{W:%fw}'
 
@@ -160,6 +160,8 @@ noremap gj j
 noremap gk k
 " make Y consistent with D and C
 nnoremap Y y$
+" toggle line numbers
+nmap <leader>l :set number!<CR>
 
 "" searching
 set gdefault
