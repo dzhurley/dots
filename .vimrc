@@ -41,6 +41,10 @@ let g:agprg="ag --smart-case"
 let g:agformat="%f:%l:%m"
 
 "" bufkill.vim
+cab Bw BW
+cab Bd BD
+cab bW BW
+cab bD BD
 cab bw BW
 cab bd BD
 
