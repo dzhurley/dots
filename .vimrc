@@ -167,6 +167,8 @@ noremap gk k
 nnoremap Y y$
 " toggle line numbers
 nmap <leader>l :set number!<CR>
+" no more Ex
+map Q <Nop>
 
 "" searching
 set gdefault
@@ -214,6 +216,8 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
+" tree view in netrw
+let g:netrw_liststyle=3
 " show line contents instead of '@@@..' if too long
 set display+=lastline
 set encoding=utf-8
@@ -224,3 +228,6 @@ set matchpairs+=<:>
 set modelines=0
 set shortmess+=I
 set showbreak=↪
+" line cursor in insert, block cursor otherwise
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
