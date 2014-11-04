@@ -138,6 +138,9 @@ augroup CursorLine
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     au WinLeave * setlocal nocursorline
 augroup END
+" line cursor in insert, block cursor otherwise
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 "" file/buffer
 set hidden
@@ -187,7 +190,7 @@ augroup END
 " active line
 function! s:SetFullStatusline()
     setlocal statusline=
-    setlocal statusline+=%1*\ %<%{pathshorten(expand('%'))}\ 
+    setlocal statusline+=%1*\ %<%{expand('%')}\ 
     setlocal statusline+=%2*%m\ %r%*%=
     setlocal statusline+=%2*%{SyntasticStatuslineFlag()}
     setlocal statusline+=%3*\ %{fugitive#head()}\ 
@@ -228,6 +231,3 @@ set matchpairs+=<:>
 set modelines=0
 set shortmess+=I
 set showbreak=↪
-" line cursor in insert, block cursor otherwise
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
