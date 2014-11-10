@@ -52,6 +52,7 @@ cab bd BD
 autocmd FileType python set commentstring=#\ %s
 
 "" ctrlp
+" settings
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = {
@@ -65,6 +66,7 @@ let g:ctrlp_status_func = {
             \ 'main': 'CtrlPMain',
             \ 'prog': 'CtrlPProg'
             \ }
+" theme
 function! CtrlPMain(...)
     return '%1* ' . a:5 . '%=' . fnamemodify(getcwd(), ':~') . ' '
 endfunction
@@ -82,12 +84,6 @@ let g:user_emmet_settings = {
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gc :Git checkout<Space>
-nnoremap <leader>gst :Git stash<CR>
-nnoremap <leader>gstp :Git stash pop<CR>
-" only push/pull current branch
-nnoremap <leader>gp :execute ':Git push origin ' . fugitive#head()<CR>
-nnoremap <leader>gl :execute ':Git pull origin ' . fugitive#head()<CR>
 
 "" gundo
 nnoremap <leader>u :GundoToggle<CR>
@@ -104,11 +100,13 @@ let g:syntastic_stl_format = '%E{E:%fe}%B{, }%W{W:%fw}'
 "" abbreviations for tyops
 cab W! w!
 cab Q! q!
-cab Wq wq
 cab Wa wa
 cab wA wa
+cab WA wa
 cab Qa qa
 cab qA qa
+cab QA qa
+cab Wq wq
 cab wQ wq
 cab WQ wq
 cab W w
@@ -164,8 +162,6 @@ nmap <leader>w :update<CR>
 " navigate through visually wrapped lines
 noremap j gj
 noremap k gk
-noremap gj j
-noremap gk k
 " make Y consistent with D and C
 nnoremap Y y$
 " toggle line numbers
@@ -219,8 +215,6 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
-" tree view in netrw
-let g:netrw_liststyle=3
 " show line contents instead of '@@@..' if too long
 set display+=lastline
 set encoding=utf-8
