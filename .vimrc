@@ -49,7 +49,7 @@ cab bw BW
 cab bd BD
 
 "" commentary
-autocmd FileType python set commentstring=#\ %s
+au FileType python set commentstring=#\ %s
 
 "" ctrlp
 " settings
@@ -211,7 +211,7 @@ set ts=4 sts=4 sw=4 et
 set backspace=indent,eol,start
 set smarttab
 " file specific
-autocmd FileType html setlocal ts=2 sts=2 sw=2 et
+au FileType html setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
@@ -219,8 +219,8 @@ let g:pymode_indent = 0
 set display+=lastline
 set encoding=utf-8
 set nofoldenable
-" make `foo-bar` work with w, *, etc
-set iskeyword+=-
+" make `foo-bar` work with w, *, etc in css/scss files
+au! FileType css,scss setl iskeyword+=-
 set matchpairs+=<:>
 set modelines=0
 set shortmess+=I
