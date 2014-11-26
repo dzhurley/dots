@@ -19,6 +19,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'rking/ag.vim'
 Plugin 'scrooloose/syntastic'
+Plugin 'SirVer/ultisnips'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
@@ -91,11 +92,14 @@ let g:gundo_preview_bottom = 1
 
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open=1
+let g:syntastic_check_on_open = 1
 let g:syntastic_enable_highlighting = 1
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
 let g:syntastic_stl_format = '%E{E:%fe}%B{, }%W{W:%fw}'
+
+"" ultisnips
+let g:UltiSnipsEditSplit = 'context'
 
 "" abbreviations for tyops
 cab W! w!
