@@ -10,6 +10,7 @@ Plugin 'gmarik/vundle'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'gorkunov/smartpairs.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'junegunn/vim-pseudocl'
 Plugin 'junegunn/vim-oblique'
