@@ -10,10 +10,7 @@ Plugin 'gmarik/vundle'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'gorkunov/smartpairs.vim'
 Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'junegunn/vim-pseudocl'
-Plugin 'junegunn/vim-oblique'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
@@ -130,7 +127,7 @@ hi! link StatusLine LineNr
 hi! link StatusLineNC SpecialKey
 
 "" completion
-set complete=.,w,b,u
+set complete=.,w,b
 set completeopt=longest,menu
 
 "" cursorline
@@ -148,7 +145,9 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 "" file/buffer
 set hidden
 set wildmenu
+set wildignorecase
 set wildmode=longest:full,full
+" move between windows
 map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
@@ -214,12 +213,14 @@ set noswapfile
 set cindent
 set ts=4 sts=4 sw=4 et
 set backspace=indent,eol,start
+set expandtab
 set smarttab
 " file specific
 au FileType html setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
+runtime macros/matchit.vim
 " show line contents instead of '@@@..' if too long
 set display+=lastline
 set encoding=utf-8
