@@ -179,6 +179,9 @@ set ignorecase
 set smartcase
 set infercase
 set incsearch
+set hlsearch
+" toggle search highlights
+nmap <leader>h :set hlsearch!<CR>
 
 "" status line
 " toggle active/inactive
