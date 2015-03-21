@@ -15,7 +15,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'rking/ag.vim'
+Plugin 'gabesoft/vim-ags'
 Plugin 'scrooloose/syntastic'
 Plugin 'SirVer/ultisnips'
 Plugin 'sjl/gundo.vim'
@@ -35,9 +35,7 @@ call vundle#end()
 filetype plugin indent on
 
 "" ag.vim
-nmap <leader>r :Ag!<Space>
-let g:agprg="ag --smart-case"
-let g:agformat="%f:%l:%m"
+nmap <leader>r :Ags<Space>
 
 "" bufkill.vim
 cab Bw BW
