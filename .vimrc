@@ -1,4 +1,3 @@
-set nocompatible
 let mapleader=" "
 
 "" bundles
@@ -10,18 +9,18 @@ Plugin 'gmarik/vundle'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'gabesoft/vim-ags'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
-Plugin 'gabesoft/vim-ags'
+Plugin 'pangloss/vim-javascript'
 Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'vim-scripts/bufkill.vim'
@@ -49,10 +48,9 @@ au FileType python set commentstring=#\ %s
 
 "" ctrlp
 " settings
-let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|sass-cache)|(built-js|out)$',
+  \ 'dir':  '\v[\/]\.(git|hg|sass-cache)|(out)$',
   \ 'file': '\v\.(pyc|orig|rej)$',
   \ }
 let g:ctrlp_extensions = ['mixed']
@@ -77,7 +75,6 @@ let g:user_emmet_settings = {
 \}
 
 "" fugitive
-nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gd :Gvdiff<CR>
 nnoremap <leader>gb :Gblame<CR>
 
@@ -88,7 +85,6 @@ let g:gundo_preview_bottom = 1
 "" syntastic
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_check_on_open = 1
-let g:syntastic_enable_highlighting = 1
 let g:syntastic_javascript_checkers = ['jsxhint']
 let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
 let g:syntastic_stl_format = '%E{E:%fe}%B{, }%W{W:%fw}'
@@ -173,9 +169,6 @@ set ignorecase
 set smartcase
 set infercase
 set incsearch
-set hlsearch
-" toggle search highlights
-nmap <leader>h :set hlsearch!<CR>
 
 "" status line
 " toggle active/inactive
