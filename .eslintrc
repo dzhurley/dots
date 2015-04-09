@@ -1,0 +1,45 @@
+{
+    "env": {
+        "browser": true,
+        "jquery": true,
+        "node": true
+    },
+
+    "ecmaFeatures": {
+        "arrowFunctions": [0],
+        "blockBindings": [0],
+        "classes": [0],
+        "defaultParams": [0],
+        "destructuring": [0],
+        "objectLiteralComputedProperties": [0],
+        "objectLiteralDuplicateProperties": [0],
+        "objectLiteralShorthandMethods": [0],
+        "objectLiteralShorthandProperties": [0],
+        "spread": [0],
+        "superInFunctions": [0],
+        "templateStrings": [0],
+        "jsx": [0]
+    },
+
+    "rules": {
+        "block-scoped-var": 2,
+        "brace-style": 2,
+        "comma-style": 2,
+        "curly": [2, "multi-line"],
+        "global-strict": 0,
+        "indent": 2,
+        "no-else-return": 2,
+        "no-extra-parens": 2,
+        "no-lonely-if": 2,
+        "no-self-compare": 2,
+        "no-undefined": 2,
+        "operator-assignment": 2,
+        "quotes": [2, "single", "avoid-escape"],
+        "radix": 2,
+        "space-after-keywords": 2,
+        "space-before-blocks": 2,
+        "space-before-function-paren": [2, "never"],
+        "strict": [2, "global"],
+        "vars-on-top": 2,
+    }
+}
