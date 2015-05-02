@@ -5,11 +5,11 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'gabesoft/vim-ags'
+Plugin 'rking/ag.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
@@ -33,7 +33,9 @@ call vundle#end()
 filetype plugin indent on
 
 "" ag.vim
-nmap <leader>r :Ags<Space>
+nmap <leader>r :Ag!<Space>
+let g:agprg="ag --smart-case"
+let g:agformat="%f:%l:%m"
 
 "" bufkill.vim
 cab Bw BW
