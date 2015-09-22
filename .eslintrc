@@ -6,19 +6,20 @@
     },
 
     "ecmaFeatures": {
-        "arrowFunctions": [0],
-        "blockBindings": [0],
-        "classes": [0],
-        "defaultParams": [0],
-        "destructuring": [0],
-        "objectLiteralComputedProperties": [0],
-        "objectLiteralDuplicateProperties": [0],
-        "objectLiteralShorthandMethods": [0],
-        "objectLiteralShorthandProperties": [0],
-        "spread": [0],
-        "superInFunctions": [0],
-        "templateStrings": [0],
-        "jsx": [0]
+        "arrowFunctions": true,
+        "blockBindings": true,
+        "classes": true,
+        "defaultParams": true,
+        "destructuring": true,
+        "forOf": true,
+        "objectLiteralComputedProperties": true,
+        "objectLiteralDuplicateProperties": true,
+        "objectLiteralShorthandMethods": true,
+        "objectLiteralShorthandProperties": true,
+        "spread": true,
+        "superInFunctions": true,
+        "templateStrings": true,
+        "jsx": true
     },
 
     "rules": {
