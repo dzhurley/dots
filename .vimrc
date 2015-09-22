@@ -56,6 +56,7 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(pyc|orig|rej)$',
   \ }
 let g:ctrlp_extensions = ['mixed']
+let g:ctrlp_max_depth = 40
 let g:ctrlp_open_multiple_files = '1v'
 let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 let g:ctrlp_status_func = {
