@@ -78,7 +78,9 @@ let g:user_emmet_settings = {
 \}
 
 "" fugitive
-nnoremap <leader>gd :Gvdiff<CR>
+nnoremap <leader>ge :Gedit<Space>
+nnoremap <leader>gs :Gsplit<Space>
+nnoremap <leader>gv :Gvsplit<Space>
 nnoremap <leader>gb :Gblame<CR>
 
 "" gundo
