@@ -152,10 +152,10 @@ au VimResized * :wincmd =
 
 "" mappings
 " debug all the things
-nmap <leader>p Oimport pdb; pdb.set_trace()<Esc>:w<CR>
-nmap <leader>t O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
-nmap <leader>n Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
-nmap <leader>d Odebugger;<Esc>:w<CR>
+:autocmd FileType html       nnoremap <buffer> <leader>d O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
+:autocmd FileType javascript nnoremap <buffer> <leader>d Odebugger;<Esc>:w<CR>
+:autocmd FileType python     nnoremap <buffer> <leader>d Oimport pdb; pdb.set_trace()<Esc>:w<CR>
+
 " better saving
 nmap <leader>w :update<CR>
 " navigate through visually wrapped lines
