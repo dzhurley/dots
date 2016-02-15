@@ -4,6 +4,7 @@
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+    whitespace = warn
 [merge]
     tool = vimdiff
 [github]
@@ -12,3 +13,5 @@
     ui = true
 [alias]
     lg = log --pretty=oneline --graph --all --decorate --abbrev-commit
+[interactive]
+    singlekey = true
