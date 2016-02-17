@@ -78,10 +78,10 @@ let g:user_emmet_settings = {
 \}
 
 "" fugitive
-nnoremap <leader>ge :Gedit<Space>
-nnoremap <leader>gs :Gsplit<Space>
-nnoremap <leader>gv :Gvsplit<Space>
+nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gb :Gblame<CR>
+nnoremap <leader>gr :Gremove<CR>
+nnoremap <leader>gm :Gmove<Space>
 
 "" gundo
 nnoremap <leader>u :GundoToggle<CR>
