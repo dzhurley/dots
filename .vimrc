@@ -34,8 +34,8 @@ filetype plugin indent on
 
 "" ag.vim
 nmap <leader>r :Ag!<Space>
-let g:agprg="ag --smart-case"
-let g:agformat="%f:%l:%m"
+let g:ag_prg="ag --smart-case"
+let g:ag_format="%f:%l:%m"
 
 "" bufkill.vim
 cab Bw BW
