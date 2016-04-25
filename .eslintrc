@@ -14,6 +14,7 @@
         "defaultParams": true,
         "destructuring": true,
         "forOf": true,
+        "objectLiteralComputedProperties": true,
         "objectLiteralShorthandMethods": true,
         "objectLiteralShorthandProperties": true,
         "restParams": true,
