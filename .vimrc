@@ -82,8 +82,6 @@ let g:user_emmet_settings = {
 "" fugitive
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gb :Gblame<CR>
-nnoremap <leader>gr :Gremove<CR>
-nnoremap <leader>gm :Gmove<Space>
 
 "" gundo
 nnoremap <leader>u :GundoToggle<CR>
@@ -169,6 +167,7 @@ nnoremap Y y$
 nmap <leader>l :set number!<CR>
 " no more Ex
 map Q <Nop>
+nnoremap <leader>p :set paste!<CR>
 
 "" searching
 set gdefault
