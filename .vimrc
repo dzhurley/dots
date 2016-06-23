@@ -35,7 +35,7 @@ call vundle#end()
 filetype plugin indent on
 
 "" ag.vim
-nmap <leader>r :Ag!<Space>
+nnoremap <leader>r :Ag!<Space>
 let g:ag_prg="ag --smart-case"
 let g:ag_format="%f:%l:%m"
 
@@ -143,10 +143,10 @@ set wildmenu
 set wildignorecase
 set wildmode=longest:full,full
 " move between windows
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 " Resize splits when the window is resized
 au VimResized * :wincmd =
 
@@ -157,17 +157,18 @@ au VimResized * :wincmd =
 :autocmd FileType python     nnoremap <buffer> <leader>d Oimport pdb; pdb.set_trace()<Esc>:w<CR>
 
 " better saving
-nmap <leader>w :update<CR>
+nnoremap <leader>w :update<CR>
 " navigate through visually wrapped lines
 noremap j gj
 noremap k gk
 " make Y consistent with D and C
 nnoremap Y y$
 " toggle line numbers
-nmap <leader>l :set number!<CR>
-" no more Ex
-map Q <Nop>
+nnoremap <leader>l :set number!<CR>
+" toggle insert paste mode
 nnoremap <leader>p :set paste!<CR>
+" no more Ex
+noremap Q <Nop>
 
 "" searching
 set gdefault
