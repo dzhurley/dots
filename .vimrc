@@ -158,15 +158,19 @@ au VimResized * :wincmd =
 
 " better saving
 nnoremap <leader>w :update<CR>
+" toggle line numbers
+nnoremap <leader>l :set number!<CR>
+" toggle insert paste mode
+nnoremap <leader>p :set paste!<CR>
+" quicker editing/sourcing .vimrc changes
+nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>sv :source $MYVIMRC<CR>
+
 " navigate through visually wrapped lines
 noremap j gj
 noremap k gk
 " make Y consistent with D and C
 nnoremap Y y$
-" toggle line numbers
-nnoremap <leader>l :set number!<CR>
-" toggle insert paste mode
-nnoremap <leader>p :set paste!<CR>
 " no more Ex
 noremap Q <Nop>
 
