@@ -148,13 +148,19 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 " Resize splits when the window is resized
-au VimResized * :wincmd =
+augroup ResizedGroup
+    autocmd! ResizedGroup
+    autocmd VimResized * :wincmd =
+augroup END
 
 "" mappings
 " debug all the things
-:autocmd FileType html       nnoremap <buffer> <leader>d O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
-:autocmd FileType javascript nnoremap <buffer> <leader>d Odebugger;<Esc>:w<CR>
-:autocmd FileType python     nnoremap <buffer> <leader>d Oimport pdb; pdb.set_trace()<Esc>:w<CR>
+augroup DebuggingGroup
+    autocmd! DebuggingGroup
+    autocmd FileType html       nnoremap <buffer> <leader>d O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
+    autocmd FileType javascript nnoremap <buffer> <leader>d Odebugger;<Esc>:w<CR>
+    autocmd FileType python     nnoremap <buffer> <leader>d Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
+augroup END
 
 " better saving
 nnoremap <leader>w :update<CR>
@@ -184,9 +190,9 @@ set incsearch
 "" status line
 " toggle active/inactive
 augroup Statusline
-    au! Statusline
-    au VimEnter,WinEnter,BufWinEnter * call <SID>SetFullStatusline()
-    au WinLeave * call <SID>SetSimpleStatusline()
+    autocmd! Statusline
+    autocmd VimEnter,WinEnter,BufWinEnter * call <SID>SetFullStatusline()
+    autocmd WinLeave * call <SID>SetSimpleStatusline()
 augroup END
 " active line
 function! s:SetFullStatusline()
