@@ -152,6 +152,8 @@ augroup ResizedGroup
     autocmd! ResizedGroup
     autocmd VimResized * :wincmd =
 augroup END
+set splitbelow
+set splitright
 
 "" mappings
 " debug all the things
@@ -169,7 +171,7 @@ nnoremap <leader>l :set number!<CR>
 " toggle insert paste mode
 nnoremap <leader>p :set paste!<CR>
 " quicker editing/sourcing .vimrc changes
-nnoremap <leader>ev :split $MYVIMRC<CR>
+nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " navigate through visually wrapped lines
