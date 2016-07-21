@@ -1,7 +1,3 @@
-if [[ `hostname -s` == "ubuntu" ]]; then
-    git config --global user.email "derek@idealist.org"
-fi
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
