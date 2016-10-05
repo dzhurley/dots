@@ -24,12 +24,22 @@
         "jsx": true
     },
 
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended", "plugin:react/recommended"],
 
     "globals": {
         "onmessage": true,
         "postMessage": true
     },
+
+    "parser": "babel-eslint",
+
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+
+    "plugins": [ "react" ],
 
     "rules": {
         // possible errors
@@ -75,6 +85,7 @@
         "indent": 2,
         "jsx-quotes": 2,
         "key-spacing": 2,
+        "keyword-spacing": 2,
         "no-lonely-if": 2,
         "no-multiple-empty-lines": 2,
         "no-spaced-func": 2,
@@ -86,8 +97,6 @@
         "semi": 2,
         "space-before-blocks": 2,
         "space-before-function-paren": [2, "never"],
-        "space-after-keywords": 2,
-        "space-before-keywords": 2,
         "space-in-parens": 2,
 
         // es6

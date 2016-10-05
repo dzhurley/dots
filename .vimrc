@@ -24,7 +24,6 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-scripts/bufkill.vim'
 Plugin 'wellle/targets.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
@@ -38,14 +37,6 @@ filetype plugin indent on
 nnoremap <leader>r :Ag!<Space>
 let g:ag_prg="ag --smart-case"
 let g:ag_format="%f:%l:%m"
-
-"" bufkill.vim
-cab Bw BW
-cab Bd BD
-cab bW BW
-cab bD BD
-cab bw BW
-cab bd BD
 
 "" commentary
 au FileType python set commentstring=#\ %s
@@ -154,6 +145,7 @@ augroup ResizedGroup
 augroup END
 set splitbelow
 set splitright
+nnoremap <leader>q :bp\|bd #<CR>
 
 "" mappings
 " debug all the things
