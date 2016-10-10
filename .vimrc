@@ -45,7 +45,7 @@ au FileType python set commentstring=#\ %s
 " settings
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|sass-cache)|(out)$',
+  \ 'dir':  '\v[\/]\.(git|hg|sass-cache)|(out)|(node_modules)$',
   \ 'file': '\v\.(pyc|orig|rej)$',
   \ }
 let g:ctrlp_extensions = ['mixed']
