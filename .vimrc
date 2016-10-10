@@ -13,10 +13,9 @@ Plugin 'rking/ag.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'mtscout6/syntastic-local-eslint.vim'
 Plugin 'mxw/vim-jsx'
+Plugin 'neomake/neomake'
 Plugin 'pangloss/vim-javascript'
-Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
@@ -78,12 +77,13 @@ nnoremap <leader>gb :Gblame<CR>
 nnoremap <leader>u :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
 
-"" syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_python_checkers = ['flake8', 'pep8', 'pyflakes', 'python']
-let g:syntastic_stl_format = '%E{E:%fe}%B{, }%W{W:%fw}'
+"" neomake
+autocmd! BufWritePost * Neomake
+let g:neomake_error_sign = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
+augroup ErrorGroup
+    au!
+    au ColorScheme * hi NeomakeErrorSign ctermfg=red
+augroup END
 
 "" abbreviations for tyops
 cab W! w!
@@ -193,7 +193,6 @@ function! s:SetFullStatusline()
     setlocal statusline=
     setlocal statusline+=%1*\ %<%{expand('%')}\ 
     setlocal statusline+=%2*%m\ %r%*%=
-    setlocal statusline+=%2*%{SyntasticStatuslineFlag()}
     setlocal statusline+=%3*\ %{fugitive#head()}\ 
 endfunction
 " inactive line
