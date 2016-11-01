@@ -15,6 +15,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'mattn/emmet-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'neomake/neomake'
+Plugin 'jaawerth/nrun.vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-commentary'
@@ -84,6 +85,9 @@ augroup ErrorGroup
     au!
     au ColorScheme * hi NeomakeErrorSign ctermfg=red
 augroup END
+" local eslintrc
+" when switching/opening a JS buffer, set neomake's eslint path
+au BufEnter *.js let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
 
 "" abbreviations for tyops
 cab W! w!
