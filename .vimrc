@@ -215,6 +215,7 @@ set ts=4 sts=4 sw=4 et
 set backspace=indent,eol,start
 set expandtab
 set smarttab
+set nojoinspaces
 " file specific
 au FileType html setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
