@@ -9,15 +9,17 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'rking/ag.vim'
-Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'jaawerth/nrun.vim'
+Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'mattn/emmet-vim'
 Plugin 'mxw/vim-jsx'
 Plugin 'neomake/neomake'
-Plugin 'jaawerth/nrun.vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'rking/ag.vim'
 Plugin 'sjl/gundo.vim'
+Plugin 'tikhomirov/vim-glsl'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
@@ -77,6 +79,9 @@ nnoremap <leader>gb :Gblame<CR>
 "" gundo
 nnoremap <leader>u :GundoToggle<CR>
 let g:gundo_preview_bottom = 1
+
+"" gutentags
+let g:gutentags_exclude = ['build', 'node_modules']
 
 "" neomake
 autocmd! BufWritePost * Neomake
@@ -222,6 +227,7 @@ set smarttab
 set nojoinspaces
 " file specific
 au FileType html setlocal ts=2 sts=2 sw=2 et
+au FileType glsl setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
