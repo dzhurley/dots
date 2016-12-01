@@ -33,6 +33,8 @@ source $ZSH/oh-my-zsh.sh
 export LESS="-F -X -R"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/idealist/sbin:/var/lib/gems/1.8/bin"
 
+export PIP2EVAL_TMP_FILE_PATH="/tmp/shms"
+
 alias gf='git fetch'
 alias gst='git stash'
 alias .=source

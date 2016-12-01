@@ -29,6 +29,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'wellle/targets.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
+Plugin 'zweifisch/pipe2eval'
 
 call vundle#end()
 
