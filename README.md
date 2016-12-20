@@ -1,3 +1,3 @@
-a bare collection of stuff that makes me comfy, mostly vim and some zsh.
+Here be configs and other bits that I like to carry around with me to make me nice and comfy.
 
-i should consider tracking some things in `.vim/`...
+Forks and pull requests are always welcome.
