@@ -91,6 +91,9 @@ augroup ErrorGroup
     au!
     au ColorScheme * hi NeomakeErrorSign ctermfg=red
 augroup END
+let g:neomake_cpp_clang_maker = {
+   \ 'args': ['-std=c++0x', '-Wc++-extensions'],
+   \ }
 " local eslintrc
 " when switching/opening a JS buffer, set neomake's eslint path
 au BufEnter *.js let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
