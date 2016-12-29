@@ -92,7 +92,7 @@ augroup ErrorGroup
     au ColorScheme * hi NeomakeErrorSign ctermfg=red
 augroup END
 let g:neomake_cpp_clang_maker = {
-   \ 'args': ['-std=c++0x', '-Wc++-extensions'],
+   \ 'args': ['-std=c++0x', '-Wc++-extensions', '-I/Applications/of_v0.9.8_osx_release/libs/openFrameworks/'],
    \ }
 " local eslintrc
 " when switching/opening a JS buffer, set neomake's eslint path
