@@ -92,7 +92,8 @@ augroup ErrorGroup
     au ColorScheme * hi NeomakeErrorSign ctermfg=red
 augroup END
 let g:neomake_cpp_clang_maker = {
-   \ 'args': ['-std=c++0x', '-Wc++-extensions', '-I/Applications/of_v0.9.8_osx_release/libs/openFrameworks/'],
+   \ 'exe': 'clang++',
+   \ 'args': ['-std=c++0x', '-Wc++-extensions'],
    \ }
 " local eslintrc
 " when switching/opening a JS buffer, set neomake's eslint path
@@ -232,6 +233,7 @@ set nojoinspaces
 " file specific
 au FileType html setlocal ts=2 sts=2 sw=2 et
 au FileType glsl setlocal ts=2 sts=2 sw=2 et
+au FileType ruby setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
