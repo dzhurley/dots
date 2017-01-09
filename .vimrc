@@ -8,28 +8,25 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'jaawerth/nrun.vim'
 Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'mattn/emmet-vim'
-Plugin 'mxw/vim-jsx'
 Plugin 'neomake/neomake'
-Plugin 'pangloss/vim-javascript'
 Plugin 'rking/ag.vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'tikhomirov/vim-glsl'
 Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rsi'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'wellle/targets.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
-Plugin 'zweifisch/pipe2eval'
+
+Plugin 'cakebaker/scss-syntax.vim'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'mattn/emmet-vim'
+Plugin 'mxw/vim-jsx'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tikhomirov/vim-glsl'
 
 call vundle#end()
 
@@ -40,9 +37,6 @@ filetype plugin indent on
 nnoremap <leader>r :Ag!<Space>
 let g:ag_prg="ag --smart-case"
 let g:ag_format="%f:%l:%m"
-
-"" commentary
-au FileType python set commentstring=#\ %s
 
 "" ctrlp
 " settings
@@ -72,14 +66,6 @@ let g:user_emmet_leader_key = '<c-t>'
 let g:user_emmet_settings = {
 \  'html' : { 'filters': 'html', 'indentation': '  ' }
 \}
-
-"" fugitive
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gb :Gblame<CR>
-
-"" gundo
-nnoremap <leader>u :GundoToggle<CR>
-let g:gundo_preview_bottom = 1
 
 "" gutentags
 let g:gutentags_exclude = ['build', 'node_modules']
@@ -165,7 +151,6 @@ nnoremap <leader>q :bp\|bd #<CR>
 " debug all the things
 augroup DebuggingGroup
     autocmd! DebuggingGroup
-    autocmd FileType html       nnoremap <buffer> <leader>d O<?python import pdb; pdb.set_trace() ?><Esc>:w<CR>
     autocmd FileType javascript nnoremap <buffer> <leader>d Odebugger;<Esc>:w<CR>
     autocmd FileType python     nnoremap <buffer> <leader>d Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
 augroup END
@@ -204,17 +189,14 @@ augroup Statusline
 augroup END
 " active line
 function! s:SetFullStatusline()
-    setlocal statusline=
-    setlocal statusline+=%1*\ %<%{expand('%')}\ 
+    setlocal statusline=%1*\ %<%{expand('%')}\ 
     setlocal statusline+=%2*%m\ %r%*%=
-    setlocal statusline+=%3*\ %{fugitive#head()}\ 
+    setlocal statusline+=%3*\ %l/%L\ 
 endfunction
 " inactive line
 function! s:SetSimpleStatusline()
-    setlocal statusline=
-    setlocal statusline+=\ %<%{pathshorten(expand('%'))}\ 
-    setlocal statusline+=%m\ %r%=
-    setlocal statusline+=%{fugitive#head()}\ 
+    setlocal statusline=\ %<%{pathshorten(expand('%'))}\ 
+    setlocal statusline+=%m\ %r%=%l/%L\ 
 endfunction
 set laststatus=2
 
