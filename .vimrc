@@ -10,9 +10,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'fcpg/vim-altscreen'
-Plugin 'jaawerth/nrun.vim'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'neomake/neomake'
+Plugin 'jaawerth/nrun.vim'
 Plugin 'rking/ag.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
@@ -44,13 +44,10 @@ let g:ag_format="%f:%l:%m"
 " settings
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|sass-cache)|(out)|(node_modules)$',
+  \ 'dir':  '\v[\/]\.git|node_modules$',
   \ 'file': '\v\.(pyc|orig|rej)$',
   \ }
 let g:ctrlp_extensions = ['mixed']
-let g:ctrlp_max_depth = 40
-let g:ctrlp_open_multiple_files = '1v'
-let g:ctrlp_reuse_window = 'netrw\|help\|quickfix'
 let g:ctrlp_status_func = {
             \ 'main': 'CtrlPMain',
             \ 'prog': 'CtrlPProg'
@@ -70,7 +67,8 @@ let g:user_emmet_settings = {
 \}
 
 "" gutentags
-let g:gutentags_exclude = ['build', 'node_modules']
+let g:gutentags_ctags_exclude = ['build']
+let g:gutentags_ctags_exclude = ['~/.cache']
 
 "" neomake
 autocmd! BufWritePost * Neomake
@@ -83,9 +81,7 @@ let g:neomake_cpp_clang_maker = {
    \ 'exe': 'clang++',
    \ 'args': ['-std=c++0x', '-Wc++-extensions'],
    \ }
-" local eslintrc
-" when switching/opening a JS buffer, set neomake's eslint path
-au BufEnter *.js let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
+let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
 
 "" abbreviations for tyops
 cab W! w!
@@ -154,7 +150,7 @@ nnoremap <leader>q :bp\|bd #<CR>
 augroup DebuggingGroup
     autocmd! DebuggingGroup
     autocmd FileType javascript nnoremap <buffer> <leader>d Odebugger;<Esc>:w<CR>
-    autocmd FileType python     nnoremap <buffer> <leader>d Ofrom nose.tools import set_trace; set_trace()<Esc>:w<CR>
+    autocmd FileType python     nnoremap <buffer> <leader>d Oimport pdb; pdb.set_trace()<Esc>:w<CR>
 augroup END
 
 " better saving
@@ -217,7 +213,6 @@ set nojoinspaces
 " file specific
 au FileType html setlocal ts=2 sts=2 sw=2 et
 au FileType glsl setlocal ts=2 sts=2 sw=2 et
-au FileType ruby setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
