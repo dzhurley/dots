@@ -26,8 +26,8 @@ Plugin 'xolox/vim-notes'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'mattn/emmet-vim'
-Plugin 'mxw/vim-jsx'
 Plugin 'pangloss/vim-javascript'
+Plugin 'neoclide/vim-jsx-improve'
 Plugin 'tikhomirov/vim-glsl'
 
 call vundle#end()
@@ -47,6 +47,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.git|node_modules$',
   \ 'file': '\v\.(pyc|orig|rej)$',
   \ }
+let g:ctrlp_max_files = 0
 let g:ctrlp_extensions = ['mixed']
 let g:ctrlp_status_func = {
             \ 'main': 'CtrlPMain',
@@ -213,6 +214,7 @@ set nojoinspaces
 " file specific
 au FileType html setlocal ts=2 sts=2 sw=2 et
 au FileType glsl setlocal ts=2 sts=2 sw=2 et
+au FileType yml setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
@@ -227,3 +229,4 @@ set matchpairs+=<:>
 set modelines=0
 set shortmess+=I
 set showbreak=↪
+set synmaxcol=200
