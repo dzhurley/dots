@@ -113,6 +113,7 @@ cab Q q
 syntax on
 set background=dark
 colorscheme solarized
+hi Normal ctermbg=NONE
 " statusline and associated
 hi User1 ctermfg=4 ctermbg=0
 hi User2 ctermfg=1 ctermbg=0
@@ -133,9 +134,15 @@ augroup CursorLine
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     au WinLeave * setlocal nocursorline
 augroup END
-" line cursor in insert, block cursor otherwise
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+autocmd VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
+"" alternate between block and vertical line cursor on normal/insert modes
+autocmd InsertEnter,InsertChange *
+\ if v:insertmode == 'i' |
+\   silent execute '!echo -ne "\e[6 q"' | redraw! |
+\ elseif v:insertmode == 'r' |
+\   silent execute '!echo -ne "\e[4 q"' | redraw! |
+\ endif
+autocmd VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
 
 "" file/buffer
 set hidden
