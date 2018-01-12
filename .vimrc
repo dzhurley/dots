@@ -14,6 +14,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'neomake/neomake'
 Plugin 'jaawerth/nrun.vim'
 Plugin 'rking/ag.vim'
+Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rsi'
@@ -64,8 +65,13 @@ endfunction
 "" emmet
 let g:user_emmet_leader_key = '<c-t>'
 let g:user_emmet_settings = {
-\  'html' : { 'filters': 'html', 'indentation': '  ' }
+\  'html' : { 'filters': 'html', 'indentation': '  ' },
+\  'javascript' : { 'extends' : 'jsx' }
 \}
+
+"" gundo
+nnoremap <leader>u :GundoToggle<CR>
+let g:gundo_preview_bottom = 1
 
 "" gutentags
 let g:gutentags_ctags_exclude = ['build']
@@ -78,11 +84,15 @@ augroup ErrorGroup
     au!
     au ColorScheme * hi NeomakeErrorSign ctermfg=red
 augroup END
-let g:neomake_cpp_clang_maker = {
-   \ 'exe': 'clang++',
-   \ 'args': ['-std=c++0x', '-Wc++-extensions'],
-   \ }
 let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
+let g:neomake_python_enabled_makers = ['pylint']
+let b:neomake_python_pylint_maker = {
+  \ 'args': [
+      \ '--rcfile', 'config/pylintrc',
+      \ '--output-format=text',
+      \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
+      \ '--reports=no'
+  \ ]}
 
 "" abbreviations for tyops
 cab W! w!
@@ -142,6 +152,7 @@ augroup ResizedGroup
     autocmd! ResizedGroup
     autocmd VimResized * :wincmd =
 augroup END
+set equalalways
 set splitbelow
 set splitright
 nnoremap <leader>q :bp\|bd #<CR>
@@ -215,6 +226,7 @@ set nojoinspaces
 au FileType html setlocal ts=2 sts=2 sw=2 et
 au FileType glsl setlocal ts=2 sts=2 sw=2 et
 au FileType yml setlocal ts=2 sts=2 sw=2 et
+au FileType yaml setlocal ts=2 sts=2 sw=2 et
 let g:pymode_indent = 0
 
 "" misc
