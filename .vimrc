@@ -85,15 +85,15 @@ augroup ErrorGroup
     au!
     au ColorScheme * hi NeomakeErrorSign ctermfg=red
 augroup END
-let b:neomake_javascript_eslint_exe = nrun#Which('eslint')
+let g:neomake_javascript_enabled_makers = ['eslint']
+let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
 let g:neomake_python_enabled_makers = ['pylint']
-let b:neomake_python_pylint_maker = {
-  \ 'args': [
+let g:neomake_python_pylint_args = [
       \ '--rcfile', 'config/pylintrc',
       \ '--output-format=text',
       \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
       \ '--reports=no'
-  \ ]}
+  \ ]
 
 "" abbreviations for tyops
 cab W! w!
