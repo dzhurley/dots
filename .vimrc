@@ -247,6 +247,8 @@ set nofoldenable
 au! FileType css,scss setl iskeyword+=-
 set matchpairs+=<:>
 set modelines=0
+set mouse=""
 set shortmess+=I
 set showbreak=↪
 set synmaxcol=200
+set ttyfast
