@@ -245,6 +245,7 @@ set encoding=utf-8
 set nofoldenable
 " make `foo-bar` work with w, *, etc in css/scss files
 au! FileType css,scss setl iskeyword+=-
+set lazyredraw
 set matchpairs+=<:>
 set modelines=0
 set mouse=""
