@@ -135,15 +135,12 @@ augroup CursorLine
     au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
     au WinLeave * setlocal nocursorline
 augroup END
-autocmd VimEnter,InsertLeave * silent execute '!echo -ne "\e[2 q"' | redraw!
 "" alternate between block and vertical line cursor on normal/insert modes
-autocmd InsertEnter,InsertChange *
-\ if v:insertmode == 'i' |
-\   silent execute '!echo -ne "\e[6 q"' | redraw! |
-\ elseif v:insertmode == 'r' |
-\   silent execute '!echo -ne "\e[4 q"' | redraw! |
-\ endif
-autocmd VimLeave * silent execute '!echo -ne "\e[ q"' | redraw!
+augroup AlternateCursor
+    au!
+    au InsertLeave * silent execute '!echo -ne "\e[2 q"'
+    au InsertEnter * silent execute '!echo -ne "\e[6 q"'
+augroup END
 
 "" file/buffer
 set hidden
