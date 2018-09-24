@@ -6,7 +6,7 @@ autoload -U add-zsh-hook
 autoload -U colors && colors
 
 function virtualenv_info {
-    [ $VIRTUAL_ENV ] && echo ' '
+    [ $VIRTUAL_ENV ] && echo "(${VIRTUAL_ENV##*/}) "
 }
 
 PROMPT='$(virtualenv_info)%{$fg[green]%}%m%{$reset_color%}:%{$fg[cyan]%}%~%{$reset_color%} $(git_prompt_info)$(git_prompt_status) %{$reset_color%}

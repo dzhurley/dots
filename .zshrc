@@ -19,7 +19,7 @@ DISABLE_AUTO_UPDATE="true"
 DISABLE_CORRECTION="true"
 
 # display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
+# COMPLETION_WAITING_DOTS="true"
 
 # disable marking untracked files under VCS as dirty. This makes repository
 # status check for large repositories much, much faster.
@@ -33,6 +33,10 @@ source $ZSH/oh-my-zsh.sh
 export PSQL_EDITOR=vim
 export LESS="-F -X -R"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/idealist/sbin:/var/lib/gems/1.8/bin"
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 alias gf='git fetch'
 alias gst='git stash'
