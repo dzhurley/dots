@@ -13,6 +13,7 @@ Plugin 'fcpg/vim-altscreen'
 Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'neomake/neomake'
 Plugin 'jaawerth/nrun.vim'
+Plugin 'rizzatti/dash.vim'
 Plugin 'rking/ag.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-commentary'
@@ -61,6 +62,9 @@ endfunction
 function! CtrlPProg(...)
     return '%1* ' . fnamemodify(getcwd(), ':~') . ' (' . a:1 . ')'
 endfunction
+
+"" dash.vim
+nmap <silent> <leader>h <Plug>DashGlobalSearch
 
 "" emmet
 let g:user_emmet_leader_key = '<c-t>'
