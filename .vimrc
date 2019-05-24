@@ -232,6 +232,7 @@ set expandtab
 set smarttab
 set nojoinspaces
 " file specific
+au FileType javascript setlocal ts=2 sts=2 sw=2 et
 au FileType html setlocal ts=2 sts=2 sw=2 et
 au FileType glsl setlocal ts=2 sts=2 sw=2 et
 au FileType yml setlocal ts=2 sts=2 sw=2 et
