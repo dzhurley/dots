@@ -15,3 +15,5 @@
     lg = log --pretty=oneline --graph --all --decorate --abbrev-commit
 [interactive]
     singlekey = true
+[includeIf "gitdir:~/codes/aclima/"]
+    path = ~/codes/aclima/.gitconfig_include
