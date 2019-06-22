@@ -41,3 +41,6 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 alias gf='git fetch'
 alias gst='git stash'
 alias .=source
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
