@@ -44,3 +44,9 @@ alias .=source
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/derekhurley/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/derekhurley/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/derekhurley/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/derekhurley/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
