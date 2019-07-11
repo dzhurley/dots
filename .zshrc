@@ -34,9 +34,12 @@ export PSQL_EDITOR=vim
 export LESS="-F -X -R"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/idealist/sbin:/var/lib/gems/1.8/bin"
 
+export PYTHON_CONFIGURE_OPTS="--enable-framework"
+PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+pyenv virtualenvwrapper
 
 alias gf='git fetch'
 alias gst='git stash'
