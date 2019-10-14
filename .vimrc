@@ -25,10 +25,12 @@ Plugin 'wellle/targets.vim'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 
+Plugin 'prettier/vim-prettier'
 Plugin 'cakebaker/scss-syntax.vim'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'neoclide/vim-jsx-improve'
 Plugin 'tikhomirov/vim-glsl'
 
@@ -91,6 +93,8 @@ augroup ErrorGroup
 augroup END
 let g:neomake_javascript_enabled_makers = ['eslint']
 let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
+let g:neomake_typescript_enabled_makers = ['eslint']
+let g:neomake_typescript_eslint_exe = nrun#Which('eslint')
 let g:neomake_python_enabled_makers = ['pylint']
 let g:neomake_python_pylint_args = [
       \ '--rcfile', 'config/pylintrc',
@@ -170,6 +174,7 @@ nnoremap <leader>q :bp\|bd #<CR>
 " debug all the things
 augroup DebuggingGroup
     autocmd! DebuggingGroup
+    autocmd FileType typescript nnoremap <buffer> <leader>d Odebugger;<Esc>:w<CR>
     autocmd FileType javascript nnoremap <buffer> <leader>d Odebugger;<Esc>:w<CR>
     autocmd FileType python     nnoremap <buffer> <leader>d Oimport pdb; pdb.set_trace()<Esc>:w<CR>
 augroup END
@@ -178,8 +183,6 @@ augroup END
 nnoremap <leader>w :update<CR>
 " toggle line numbers
 nnoremap <leader>l :set number!<CR>
-" toggle insert paste mode
-nnoremap <leader>p :set paste!<CR>
 " quicker editing/sourcing .vimrc changes
 nnoremap <leader>ev :vsplit $MYVIMRC<CR>
 nnoremap <leader>sv :source $MYVIMRC<CR>
@@ -233,6 +236,7 @@ set smarttab
 set nojoinspaces
 " file specific
 au FileType javascript setlocal ts=2 sts=2 sw=2 et
+au FileType typescript setlocal ts=2 sts=2 sw=2 et
 au FileType html setlocal ts=2 sts=2 sw=2 et
 au FileType glsl setlocal ts=2 sts=2 sw=2 et
 au FileType yml setlocal ts=2 sts=2 sw=2 et
