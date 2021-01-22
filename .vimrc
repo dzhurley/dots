@@ -1,62 +1,61 @@
 let mapleader=" "
 
 "" bundles
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
+Plug 'fcpg/vim-altscreen'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'mattn/emmet-vim'
+Plug 'rking/ag.vim'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'wellle/targets.vim'
 
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'fcpg/vim-altscreen'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'neomake/neomake'
-Plugin 'jaawerth/nrun.vim'
-Plugin 'rizzatti/dash.vim'
-Plugin 'rking/ag.vim'
-Plugin 'sjl/gundo.vim'
-Plugin 'tpope/vim-commentary'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-rsi'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'wellle/targets.vim'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
+Plug 'sheerun/vim-polyglot'
+Plug 'evanleck/vim-svelte'
+Plug 'altercation/vim-colors-solarized'
 
-Plugin 'prettier/vim-prettier'
-Plugin 'cakebaker/scss-syntax.vim'
-Plugin 'hynek/vim-python-pep8-indent'
-Plugin 'mattn/emmet-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'neoclide/vim-jsx-improve'
-Plugin 'tikhomirov/vim-glsl'
-
-call vundle#end()
-
-" required after bundles
-filetype plugin indent on
+call plug#end()
 
 "" ag.vim
 nnoremap <leader>r :Ag!<Space>
 let g:ag_prg="ag --smart-case"
 let g:ag_format="%f:%l:%m"
 
+"" ale
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_linter_aliases = {
+\   'typescriptreact': ['typescript', 'tsx'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'eslint'],
+\   'python': ['black'],
+\}
+nnoremap <leader>p :ALEFix<CR>
+
 "" ctrlp
 " settings
 let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.git|node_modules$',
-  \ 'file': '\v\.(pyc|orig|rej)$',
+  \ 'dir':  '\v[\/]\..*|node_modules|dist|build$',
+  \ 'file': '\v\.(pyc|orig|rej)|tags|__.*$',
   \ }
 let g:ctrlp_max_files = 0
 let g:ctrlp_extensions = ['mixed']
 let g:ctrlp_status_func = {
-            \ 'main': 'CtrlPMain',
-            \ 'prog': 'CtrlPProg'
-            \ }
+  \ 'main': 'CtrlPMain',
+  \ 'prog': 'CtrlPProg'
+  \ }
 " theme
 function! CtrlPMain(...)
     return '%1* ' . a:5 . '%=' . fnamemodify(getcwd(), ':~') . ' '
@@ -64,9 +63,6 @@ endfunction
 function! CtrlPProg(...)
     return '%1* ' . fnamemodify(getcwd(), ':~') . ' (' . a:1 . ')'
 endfunction
-
-"" dash.vim
-nmap <silent> <leader>h <Plug>DashGlobalSearch
 
 "" emmet
 let g:user_emmet_leader_key = '<c-t>'
@@ -81,42 +77,8 @@ let g:gundo_preview_bottom = 1
 let g:gundo_prefer_python3 = 1
 
 "" gutentags
-let g:gutentags_ctags_exclude = ['build']
-let g:gutentags_ctags_exclude = ['~/.cache']
-
-"" neomake
-autocmd! BufWritePost * Neomake
-let g:neomake_error_sign = {'text': '✖', 'texthl': 'NeomakeErrorSign'}
-augroup ErrorGroup
-    au!
-    au ColorScheme * hi NeomakeErrorSign ctermfg=red
-augroup END
-let g:neomake_javascript_enabled_makers = ['eslint']
-let g:neomake_javascript_eslint_exe = nrun#Which('eslint')
-let g:neomake_typescript_enabled_makers = ['eslint']
-let g:neomake_typescript_eslint_exe = nrun#Which('eslint')
-let g:neomake_python_enabled_makers = ['pylint']
-let g:neomake_python_pylint_args = [
-      \ '--rcfile', 'config/pylintrc',
-      \ '--output-format=text',
-      \ '--msg-template="{path}:{line}:{column}:{C}: [{symbol}] {msg} [{msg_id}]"',
-      \ '--reports=no'
-  \ ]
-
-"" abbreviations for tyops
-cab W! w!
-cab Q! q!
-cab Wa wa
-cab wA wa
-cab WA wa
-cab Qa qa
-cab qA qa
-cab QA qa
-cab Wq wq
-cab wQ wq
-cab WQ wq
-cab W w
-cab Q q
+let g:gutentags_cache_dir = '~/.vim/tags'
+let g:gutentags_ctags_exclude = ['node_modules', 'dist', 'build', '\.*', '__.*', '*.bundle.js']
 
 "" colors
 syntax on
@@ -181,11 +143,6 @@ augroup END
 
 " better saving
 nnoremap <leader>w :update<CR>
-" toggle line numbers
-nnoremap <leader>l :set number!<CR>
-" quicker editing/sourcing .vimrc changes
-nnoremap <leader>ev :vsplit $MYVIMRC<CR>
-nnoremap <leader>sv :source $MYVIMRC<CR>
 
 " navigate through visually wrapped lines
 noremap j gj

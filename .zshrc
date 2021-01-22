@@ -30,6 +30,7 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+export EDITOR=vim
 export PSQL_EDITOR=vim
 export LESS="-F -X -R"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/idealist/sbin:/var/lib/gems/1.8/bin"
@@ -48,8 +49,6 @@ alias .=source
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/derekhurley/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/derekhurley/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+export CLOUDSDK_PYTHON=/usr/bin/python
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/derekhurley/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/derekhurley/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="/usr/local/opt/openssl/bin:$PATH"
