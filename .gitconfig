@@ -2,7 +2,7 @@
     email = dzhurley@gmail.com
     name = Derek Hurley
 [core]
-    editor = vim
+    editor = nvim
     excludesfile = ~/.gitignore_global
     whitespace = warn
 [merge]
@@ -17,3 +17,5 @@
     singlekey = true
 [includeIf "gitdir:~/codes/aclima/"]
     path = ~/codes/aclima/.gitconfig_include
+[pull]
+    rebase = false

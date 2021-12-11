@@ -30,13 +30,19 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
-export EDITOR=vim
-export PSQL_EDITOR=vim
+export BAT_THEME="Solarized (dark)"
+
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_DEFAULT_OPTS='--layout=reverse'
+
+export EDITOR=nvim
+export PSQL_EDITOR=nvim
 export LESS="-F -X -R"
 export PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/X11R6/bin:/idealist/sbin:/var/lib/gems/1.8/bin"
 
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
 PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
+eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -51,4 +57,6 @@ export NVM_DIR="$HOME/.nvm"
 
 export CLOUDSDK_PYTHON=/usr/bin/python
 
-export PATH="/usr/local/opt/openssl/bin:$PATH"
+export LDFLAGS="-L/usr/local/opt/openssl@1.0/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl@1.0/include"
+export PATH="/usr/local/opt/openssl@1.0/bin:$PATH"
