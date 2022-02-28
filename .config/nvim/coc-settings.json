@@ -1,4 +1,6 @@
 {
+  "python.formatting.provider": "black",
   "suggest.autoTrigger": "none",
-  "signature.enable": false
+  "signature.enable": false,
+  "svelte.enable-ts-plugin": true
 }

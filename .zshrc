@@ -27,14 +27,11 @@ export HOMEBREW_NO_ENV_HINTS=true
 export EDITOR=nvim
 export PSQL_EDITOR=nvim
 export LESS="-F -X -R"
-export PATH=/usr/local/bin:$PATH
 
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
-PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-eval "$(pyenv init --path)"
+export PATH="$HOME/.pyenv/shims:/usr/local/bin:$PATH"
 eval "$(pyenv init -)"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-pyenv virtualenvwrapper
+eval "$(pyenv virtualenv-init -)"
 
 alias gst='git stash'
 alias .=source
@@ -51,3 +48,8 @@ if [ -f '/Users/derekhurley/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/der
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/derekhurley/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/derekhurley/google-cloud-sdk/completion.zsh.inc'; fi
+
+# M1 spatial affordances
+export SPATIALINDEX_C_LIBRARY="/opt/homebrew/Cellar/spatialindex/1.9.3/lib/"
+export DYLD_LIBRARY_PATH="/opt/homebrew/opt/geos/lib/"
+export GRPC_PYTHON_BUILD_SYSTEM_ZLIB=true
