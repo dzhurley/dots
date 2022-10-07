@@ -89,6 +89,9 @@ let g:user_emmet_settings = {
 nnoremap <leader>u :MundoToggle<CR>
 let g:mundo_preview_bottom = 1
 
+"" svelte
+let g:vim_svelte_plugin_use_typescript = 1
+
 " debugger
 augroup DebuggingGroup
     autocmd! DebuggingGroup

@@ -1,4 +1,5 @@
 {
+  "notification.disabledProgressSources": ["*"],
   "python.formatting.provider": "black",
   "suggest.autoTrigger": "none",
   "signature.enable": false,
